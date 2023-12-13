@@ -46,6 +46,8 @@ class Func():
                 print('Состояние фар    ', stroka[6])
                 print('Состояние дверей ', stroka[7])
                 #----------------------------
+                print('Состояние двигателя  |', stroka[8])#модификация 1
+                # ----------------------------
                 print('')
                 print('\nЧтобы изменить характеристики введите - изменить')
                 print('\nЧтобы вернуться назад введите - назад')
@@ -67,15 +69,17 @@ class Func():
                         print('6) Состояние фар   ')
                         print('7) Состояние дверей')
                         #----------------------------
+                        print('8) Состояние двигателя')
+                        # ----------------------------
                         print('Введите номер характеристики, которую хотите изменить')
                         izm = str(input())
                         while izm not in cif:
                             print('Нет такой характеристики. Введите заново: ')
                             izm = str(input())
-                        while int(izm) not in range(1, 8):
+                        while int(izm) not in range(1, 9):
                             print('Нет такой характеристики. Введите заново: ')
                             izm = str(input())
-                        if int(izm) in range(1, 8):
+                        if int(izm) in range(1, 9):
                             print('Введите характеристику, которую вы изменили')
                             izmen = input()
                             stroka[int(izm)] = izmen
@@ -88,7 +92,7 @@ class Func():
                                             w.write(line)
                                         elif count == x:
                                             w.write(stroka[0]+','+stroka[1]+','+stroka[2]+','+stroka[3]+','+stroka[4]+','+stroka[5]+
-                                                    ','+stroka[6]+','+stroka[7]+'\n')
+                                                    ','+stroka[6]+','+stroka[7]+stroka[8]+'\n')
                                         count += 1
                             print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nХарактеристики автомобиля успешно изменены\n')
                             f5 = 1
@@ -266,6 +270,8 @@ class Func():
                         print('\nСостояние дверей ')
                         dveri = input()
                         #----------------------------
+                        print('\nСостояние двигателя')  # изменения
+                        dvig = input()  # изменения
                         with open('Машинки1.txt', 'r') as r: #encoding="utf-8"
                             stroki = r.readlines()
                             count = 1
@@ -274,7 +280,7 @@ class Func():
                                     if count != a+1:
                                         w.write(line)
                                     count += 1
-                                w.write('\n'+marka+','+number+','+color+','+god+','+objem+','+moshn+','+fari+','+dveri)
+                                w.write('\n'+marka+','+number+','+color+','+god+','+objem+','+moshn+','+fari+','+dveri+','+dvig+',') #изменения
                         print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
                         print('Автомобиль добавлен!')
                         f2 = 1
